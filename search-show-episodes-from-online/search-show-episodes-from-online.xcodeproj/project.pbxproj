@@ -77,11 +77,11 @@
 		EAD5B67D2322C7C000459B5F /* search-show-episodes-from-online */ = {
 			isa = PBXGroup;
 			children = (
-				EAD5B67E2322C7C000459B5F /* AppDelegate.swift */,
-				EAD5B6802322C7C000459B5F /* ViewController.swift */,
-				EAD5B6822322C7C000459B5F /* Main.storyboard */,
-				EAD5B6852322C7C100459B5F /* Assets.xcassets */,
-				EAD5B6872322C7C100459B5F /* LaunchScreen.storyboard */,
+				EAD5B6A12322C7F200459B5F /* Clients */,
+				EAD5B6A02322C7E000459B5F /* Models */,
+				EAD5B69E2322C7D000459B5F /* Controllers */,
+				EAD5B69F2322C7D700459B5F /* Views */,
+				EAD5B6A22322C7FD00459B5F /* Supporting Files */,
 				EAD5B68A2322C7C100459B5F /* Info.plist */,
 			);
 			path = "search-show-episodes-from-online";
@@ -94,6 +94,46 @@
 				EAD5B6952322C7C100459B5F /* Info.plist */,
 			);
 			path = "search-show-episodes-from-onlineTests";
+			sourceTree = "<group>";
+		};
+		EAD5B69E2322C7D000459B5F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAD5B6802322C7C000459B5F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EAD5B69F2322C7D700459B5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAD5B6822322C7C000459B5F /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EAD5B6A02322C7E000459B5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EAD5B6A12322C7F200459B5F /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		EAD5B6A22322C7FD00459B5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAD5B6852322C7C100459B5F /* Assets.xcassets */,
+				EAD5B67E2322C7C000459B5F /* AppDelegate.swift */,
+				EAD5B6872322C7C100459B5F /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
