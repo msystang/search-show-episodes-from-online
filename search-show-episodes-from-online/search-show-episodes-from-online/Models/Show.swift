@@ -21,5 +21,5 @@ struct Show: Codable {
 }
 
 struct ImageWrapper: Codable {
-    let medium: String
+    let medium: String?
 }

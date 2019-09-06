@@ -9,5 +9,5 @@
 import Foundation
 
 class ShowAPIClient {
-//    let strUrl = "http://api.tvmaze.com/search/shows?q=\(searchResultHere)"
+
 }

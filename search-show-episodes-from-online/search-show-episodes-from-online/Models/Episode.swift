@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct Episode: Codable {
+    let id: Int
+    let name: String
+    let season: Int
+    let episode: Int
+    let image: imageWrapper
+    let summary: String?
+}
+
+struct imageWrapper: Codable {
+    let medium: String?
+}
