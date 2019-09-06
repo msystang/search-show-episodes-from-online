@@ -10,7 +10,7 @@ import Foundation
 
 struct ShowWrapper: Codable {
     let score: Int
-    let show: [Show]
+    let shows: [Show]
 }
 
 struct Show: Codable {

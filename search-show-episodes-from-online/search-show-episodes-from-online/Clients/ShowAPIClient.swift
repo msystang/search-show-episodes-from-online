@@ -9,5 +9,26 @@
 import Foundation
 
 class ShowAPIClient {
-
+    private init() {}
+    
+    static let shared = ShowAPIClient()
+    
+    func getShows(from urlStr: String, completionHandler: @escaping (Result<[Show]?, AppError>) -> ()) {
+        
+        NetworkManager.shared.getData(from: urlStr) { (result) in
+            switch result {
+            case .failure(let error):
+                completionHandler(.failure(error))
+                return
+            case .success(let data):
+                do {
+                    let showInfo = try JSONDecoder().decode(ShowWrapper.self, from: data)
+                    completionHandler(.success(showInfo.shows))
+                } catch {
+                    completionHandler(.failure(.couldNotParseJSON(rawError: error)))
+                }
+            }
+        }
+    }
 }
+
