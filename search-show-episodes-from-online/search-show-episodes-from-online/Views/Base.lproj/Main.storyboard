@@ -87,6 +87,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="3F8-gO-huj"/>
+                    <connections>
+                        <outlet property="searchBar" destination="32p-w5-rjM" id="LKa-MI-6Ye"/>
+                        <outlet property="showTableView" destination="c9f-nx-stL" id="SjB-J0-wI0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
