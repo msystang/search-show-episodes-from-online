@@ -22,6 +22,7 @@
 		EAD5B6B12322E48600459B5F /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5B6B02322E48600459B5F /* ShowTableViewCell.swift */; };
 		EAD5B6B32322E49000459B5F /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5B6B22322E49000459B5F /* EpisodeTableViewCell.swift */; };
 		EAD5B6B52322E5E000459B5F /* ShowAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5B6B42322E5DF00459B5F /* ShowAPIClient.swift */; };
+		EAD5B6B72322ED7300459B5F /* EpisodeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5B6B62322ED7300459B5F /* EpisodeAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		EAD5B6B02322E48600459B5F /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		EAD5B6B22322E49000459B5F /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		EAD5B6B42322E5DF00459B5F /* ShowAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAPIClient.swift; sourceTree = "<group>"; };
+		EAD5B6B62322ED7300459B5F /* EpisodeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				EAD5B6A32322E3D000459B5F /* NetworkManager.swift */,
 				EAD5B6A52322E3D800459B5F /* AppError.swift */,
 				EAD5B6B42322E5DF00459B5F /* ShowAPIClient.swift */,
+				EAD5B6B62322ED7300459B5F /* EpisodeAPIClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				EAD5B6A82322E3F000459B5F /* Show.swift in Sources */,
 				EAD5B6B52322E5E000459B5F /* ShowAPIClient.swift in Sources */,
 				EAD5B67F2322C7C000459B5F /* AppDelegate.swift in Sources */,
+				EAD5B6B72322ED7300459B5F /* EpisodeAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+struct ShowWrapper: Codable {
+    let score: Int
+    let show: [Show]
+}
+
+struct Show: Codable {
+    let id: Int
+    let name: String
+    let image: ImageWrapper
+    
+}
+
+struct ImageWrapper: Codable {
+    let medium: String
+}

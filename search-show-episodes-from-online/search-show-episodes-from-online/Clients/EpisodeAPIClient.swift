@@ -1,5 +1,5 @@
 //
-//  ShowAPIClient.swift
+//  EpisodeAPIClient.swift
 //  search-show-episodes-from-online
 //
 //  Created by Sunni Tang on 9/6/19.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class ShowAPIClient {
-//    let strUrl = "http://api.tvmaze.com/search/shows?q=\(searchResultHere)"
+class EpisodeAPIClient {
+//    let urlStr = "http://api.tvmaze.com/episodes/\(episodeIDhere)"
 }
