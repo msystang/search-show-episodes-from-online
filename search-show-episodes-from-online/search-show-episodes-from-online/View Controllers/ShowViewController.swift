@@ -9,8 +9,6 @@
 import UIKit
 
 class ShowViewController: UIViewController {
-
-    // URL to load shows: "http://api.tvmaze.com/search/shows?q=\(searchResultHere)"
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var showTableView: UITableView!
@@ -21,6 +19,12 @@ class ShowViewController: UIViewController {
         }
     }
 
+    var searchString: String? {
+        didSet {
+            showTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
@@ -36,6 +40,18 @@ class ShowViewController: UIViewController {
         searchBar.delegate = self
     }
 
+    private func loadShowSearch() {
+        let showURL =  "http://api.tvmaze.com/search/shows?q=\(searchString)"
+        NetworkManager.shared.getData(from: showURL) { (result) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let showData):
+                let showFromData = Show.getShowsFromData(from: showData)
+                self.shows = showFromData
+            }
+        }
+    }
 }
 
 extension ShowViewController: UITableViewDelegate {
@@ -54,4 +70,8 @@ extension ShowViewController: UITableViewDataSource {
     }
 }
 
-extension ShowViewController: UISearchBarDelegate {}
+extension ShowViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchBar.text
+    }
+}

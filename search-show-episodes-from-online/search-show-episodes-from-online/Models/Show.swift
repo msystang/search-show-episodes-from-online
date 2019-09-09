@@ -18,6 +18,15 @@ struct Show: Codable {
     let name: String
     let image: ImageWrapper
     
+    static func getShowsFromData(from data: Data ) -> [Show]? {
+        do {
+            let shows = try JSONDecoder().decode([Show]?.self, from: data)
+            return shows
+        } catch {
+            return nil
+        }
+    }
+    
 }
 
 struct ImageWrapper: Codable {
