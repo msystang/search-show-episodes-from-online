@@ -38,7 +38,11 @@ class ShowViewController: UIViewController {
 
 }
 
-extension ShowViewController: UITableViewDelegate {}
+extension ShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
 
 extension ShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
