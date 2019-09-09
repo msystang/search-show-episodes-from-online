@@ -43,18 +43,20 @@ class ShowViewController: UIViewController {
 
     private func loadShowSearch() {
         if let searchString = searchString {
-            print("string from load data: \(searchString)")
             let showURL = "http://api.tvmaze.com/search/shows?q=\(searchString)"
             ShowAPIClient.shared.getShows(from: showURL) { (result) in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let showsFromData):
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let showsFromData):
                         self.shows = showsFromData
+                    }
                 }
             }
         }
     }
+    
 }
 
 extension ShowViewController: UITableViewDelegate {
@@ -74,7 +76,24 @@ extension ShowViewController: UITableViewDataSource {
             
         //TODO - add image helper to add image, add rating label from userwrapper
 //            showCell?.showImage.image = UIImage(data: <#T##Data#>)
+        
+//        showCell.showImage.image =
+        
+        let imageURL = show.show.image.medium
+        ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                    case .failure(let error):
+                        print(error)
+                        showCell.showImage.image = UIImage(named: "noImage")
+                    case .success(let image):
+                        showCell.showImage.image = image
+                }
+            }
+        }
+        
         showCell.showNameLabel.text = show.show.name
+        showCell.ratingLabel.text = "Rating: \(String(format: "%.1f", show.score))"
             
         return showCell
     }
