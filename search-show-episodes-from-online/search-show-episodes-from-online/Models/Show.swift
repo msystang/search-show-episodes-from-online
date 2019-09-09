@@ -9,24 +9,14 @@
 import Foundation
 
 struct ShowWrapper: Codable {
-    let score: Int
-    let shows: [Show]
+    let score: Double
+    let show: Show
 }
 
 struct Show: Codable {
     let id: Int
     let name: String
     let image: ImageWrapper
-    
-    static func getShowsFromData(from data: Data ) -> [Show]? {
-        do {
-            let shows = try JSONDecoder().decode([Show]?.self, from: data)
-            return shows
-        } catch {
-            return nil
-        }
-    }
-    
 }
 
 struct ImageWrapper: Codable {

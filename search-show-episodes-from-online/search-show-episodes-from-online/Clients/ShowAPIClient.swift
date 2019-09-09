@@ -13,7 +13,7 @@ class ShowAPIClient {
     
     static let shared = ShowAPIClient()
     
-    func getShows(from urlStr: String, completionHandler: @escaping (Result<[Show]?, AppError>) -> ()) {
+    func getShows(from urlStr: String, completionHandler: @escaping (Result<[ShowWrapper]?, AppError>) -> ()) {
         
         NetworkManager.shared.getData(from: urlStr) { (result) in
             switch result {
@@ -22,8 +22,8 @@ class ShowAPIClient {
                 return
             case .success(let data):
                 do {
-                    let showInfo = try JSONDecoder().decode(ShowWrapper.self, from: data)
-                    completionHandler(.success(showInfo.shows))
+                    let showInfo = try JSONDecoder().decode([ShowWrapper].self, from: data)
+                    completionHandler(.success(showInfo))
                 } catch {
                     completionHandler(.failure(.couldNotParseJSON(rawError: error)))
                 }

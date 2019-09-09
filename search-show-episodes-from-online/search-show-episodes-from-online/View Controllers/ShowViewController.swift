@@ -12,18 +12,19 @@ class ShowViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var showTableView: UITableView!
-    
-    var shows: [Show]? {
-        didSet {
-            showTableView.reloadData()
-        }
-    }
 
-    var searchString: String? {
+    var searchString: String? = nil {
         didSet {
             showTableView.reloadData()
         }
     }
+    
+    var shows: [ShowWrapper]? {
+        didSet {
+            showTableView.reloadData()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +42,19 @@ class ShowViewController: UIViewController {
     }
 
     private func loadShowSearch() {
-        let showURL =  "http://api.tvmaze.com/search/shows?q=\(searchString)"
-        NetworkManager.shared.getData(from: showURL) { (result) in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let showData):
-                let showFromData = Show.getShowsFromData(from: showData)
-                self.shows = showFromData
+        if let searchString = searchString {
+            print("string from load data: \(searchString)")
+            let showURL = "http://api.tvmaze.com/search/shows?q=\(searchString)"
+            ShowAPIClient.shared.getShows(from: showURL) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let showsFromData):
+                    if let showsFromData = showsFromData {
+                        print("Number of results: \(showsFromData.count)")
+                        self.shows = showsFromData
+                    }
+                }
             }
         }
     }
@@ -62,10 +68,25 @@ extension ShowViewController: UITableViewDelegate {
 
 extension ShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let shows = shows {
+            print("row count: \(shows.count)")
+            return shows.count
+        }
+        print("shows is nil")
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let shows = shows {
+            let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
+            let show = shows[indexPath.row]
+            
+            //TODO - add image helper to add image, add rating label from userwrapper
+//            showCell?.showImage.image = UIImage(data: <#T##Data#>)
+            showCell.showNameLabel.text = show.show.name
+            
+            return showCell
+        }
         return UITableViewCell()
     }
 }
@@ -73,5 +94,7 @@ extension ShowViewController: UITableViewDataSource {
 extension ShowViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchBar.text
+        print(searchString)
+        loadShowSearch()
     }
 }
