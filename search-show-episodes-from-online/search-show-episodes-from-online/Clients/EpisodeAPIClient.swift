@@ -13,7 +13,7 @@ class EpisodeAPIClient {
     
     static let shared = EpisodeAPIClient()
     
-    func getEpisodes(from urlStr: String, completionHandler: @escaping (Result<[Episode]?, AppError>) -> ()) {
+    func getEpisodes(from urlStr: String, completionHandler: @escaping (Result<[Episode], AppError>) -> ()) {
         
         NetworkManager.shared.getData(from: urlStr) { (result) in
             switch result {

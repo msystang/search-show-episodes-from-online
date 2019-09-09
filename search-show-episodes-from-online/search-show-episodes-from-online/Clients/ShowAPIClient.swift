@@ -13,7 +13,7 @@ class ShowAPIClient {
     
     static let shared = ShowAPIClient()
     
-    func getShows(from urlStr: String, completionHandler: @escaping (Result<[ShowWrapper]?, AppError>) -> ()) {
+    func getShows(from urlStr: String, completionHandler: @escaping (Result<[ShowWrapper], AppError>) -> ()) {
         
         NetworkManager.shared.getData(from: urlStr) { (result) in
             switch result {

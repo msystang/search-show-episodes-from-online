@@ -19,7 +19,7 @@ class ShowViewController: UIViewController {
         }
     }
     
-    var shows: [ShowWrapper]? {
+    var shows = [ShowWrapper]() {
         didSet {
             showTableView.reloadData()
         }
@@ -50,10 +50,7 @@ class ShowViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                 case .success(let showsFromData):
-                    if let showsFromData = showsFromData {
-                        print("Number of results: \(showsFromData.count)")
                         self.shows = showsFromData
-                    }
                 }
             }
         }
@@ -68,33 +65,25 @@ extension ShowViewController: UITableViewDelegate {
 
 extension ShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let shows = shows {
-            print("row count: \(shows.count)")
-            return shows.count
-        }
-        print("shows is nil")
-        return 0
+        return shows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let shows = shows {
-            let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
-            let show = shows[indexPath.row]
+        let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
+        let show = shows[indexPath.row]
             
-            //TODO - add image helper to add image, add rating label from userwrapper
+        //TODO - add image helper to add image, add rating label from userwrapper
 //            showCell?.showImage.image = UIImage(data: <#T##Data#>)
-            showCell.showNameLabel.text = show.show.name
+        showCell.showNameLabel.text = show.show.name
             
-            return showCell
-        }
-        return UITableViewCell()
+        return showCell
     }
+    
 }
 
 extension ShowViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchBar.text
-        print(searchString)
         loadShowSearch()
     }
 }
