@@ -16,6 +16,7 @@ class ShowViewController: UIViewController {
     var searchString: String? = nil {
         didSet {
             showTableView.reloadData()
+            loadShowSearch()
         }
     }
     
@@ -57,6 +58,15 @@ class ShowViewController: UIViewController {
         }
     }
     
+    //TODO: refactor errors without fatalError?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedIndex = showTableView.indexPathForSelectedRow else { fatalError("No cell selected")}
+        guard segue.identifier == "showCellToEpisodesSegue" else { fatalError("Unidentified segue")}
+        guard let episodesVC = segue.destination as? EpisodeViewController else { fatalError("No destination") }
+        
+        episodesVC.show = shows[selectedIndex.row].show
+    }
+    
 }
 
 extension ShowViewController: UITableViewDelegate {
@@ -73,11 +83,6 @@ extension ShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
         let show = shows[indexPath.row]
-            
-        //TODO - add image helper to add image, add rating label from userwrapper
-//            showCell?.showImage.image = UIImage(data: <#T##Data#>)
-        
-//        showCell.showImage.image =
         
         let imageURL = show.show.image.medium
         ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
@@ -103,6 +108,5 @@ extension ShowViewController: UITableViewDataSource {
 extension ShowViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchBar.text
-        loadShowSearch()
     }
 }

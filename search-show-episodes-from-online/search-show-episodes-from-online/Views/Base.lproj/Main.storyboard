@@ -67,7 +67,7 @@
                                             <outlet property="ratingLabel" destination="lmS-E6-3Ua" id="jZb-N9-aw8"/>
                                             <outlet property="showImage" destination="T3R-vF-2z2" id="3HJ-CA-Ho5"/>
                                             <outlet property="showNameLabel" destination="gOb-2O-Hte" id="YiW-3O-maH"/>
-                                            <segue destination="NMk-IC-8RA" kind="show" identifier="showToEpisodeSegue" id="EpH-ob-080"/>
+                                            <segue destination="NMk-IC-8RA" kind="show" identifier="showCellToEpisodesSegue" id="EpH-ob-080"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -153,7 +153,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Pvu-ed-hUs" kind="show" identifier="episodeToDetailSegue" id="3Q5-de-3Xf"/>
+                                            <segue destination="Pvu-ed-hUs" kind="show" identifier="episodeCellToDetailSegue" id="3Q5-de-3Xf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

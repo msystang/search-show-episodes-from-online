@@ -9,11 +9,14 @@
 import UIKit
 
 class EpisodeViewController: UIViewController {
-
+    
+    var show: Show!
+    var episodes = [Episode]()
+    
     // URL to load episode: "http://api.tvmaze.com/shows/\(episideIDhere)/episodes?=summary"
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
