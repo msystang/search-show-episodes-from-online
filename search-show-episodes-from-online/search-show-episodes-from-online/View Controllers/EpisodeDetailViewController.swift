@@ -17,11 +17,33 @@ class EpisodeDetailViewController: UIViewController {
     
     
     var episode: Episode!
-    // URL to load episode: "http://api.tvmaze.com/shows/\(episideIDhere)/episodes?=summary"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureText()
+        loadImage()
     }
     
+    private func configureText() {
+        episodeNameLabel.text = episode.name
+        seasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.number)"
+        epDescriptionTextView.text = episode.summary
+    }
+    
+    private func loadImage() {
+        if let imageURL = episode.image?.medium {
+            ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let image):
+                        self.episodeImage.image = image
+                    }
+                }
+            }
+        } else {
+            episodeImage.image = UIImage(named: "noImage")
+        }
+    }
 }

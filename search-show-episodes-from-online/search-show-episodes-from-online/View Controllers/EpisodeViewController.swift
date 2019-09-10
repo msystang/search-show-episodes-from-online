@@ -13,11 +13,11 @@ class EpisodeViewController: UIViewController {
     @IBOutlet weak var episodesTableView: UITableView!
     
     var show: Show!
-    
+
     var showID: Int {
         return show.id
     }
-    
+
     var episodes = [Episode]() {
         didSet {
             episodesTableView.reloadData()
