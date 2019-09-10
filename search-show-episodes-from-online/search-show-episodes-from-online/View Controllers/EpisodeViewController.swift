@@ -27,6 +27,7 @@ class EpisodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        loadEpisodes()
     }
     
     private func configureTableView() {
@@ -47,7 +48,6 @@ class EpisodeViewController: UIViewController {
                 }
             }
         }
-        
     }
     
 }
@@ -66,8 +66,8 @@ extension EpisodeViewController: UITableViewDataSource {
         
 //        episodeCell.episodeImage.image =
         episodeCell.episodeNameLabel.text = episode.name
-        episodeCell.episodeSeasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.episode)"
+        episodeCell.episodeSeasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.number)"
         
-        return UITableViewCell()
+        return episodeCell
     }
 }
