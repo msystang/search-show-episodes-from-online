@@ -64,7 +64,20 @@ extension EpisodeViewController: UITableViewDataSource {
         let episode = episodes[indexPath.row]
         let episodeCell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
         
-//        episodeCell.episodeImage.image =
+        let imageURL = episode.image.medium
+        ImageHelper.shared
+            .getImage(urlStr: imageURL) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                        episodeCell.episodeImage.image = UIImage(named: "noImage")
+                    case .success(let image):
+                        episodeCell.episodeImage.image = image
+                    }
+                }
+        }
+
         episodeCell.episodeNameLabel.text = episode.name
         episodeCell.episodeSeasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.number)"
         
