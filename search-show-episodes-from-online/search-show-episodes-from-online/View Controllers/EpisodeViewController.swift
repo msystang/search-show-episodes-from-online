@@ -13,6 +13,11 @@ class EpisodeViewController: UIViewController {
     @IBOutlet weak var episodesTableView: UITableView!
     
     var show: Show!
+    
+    var showID: Int {
+        showID = show.id
+    }
+    
     var episodes = [Episode]() {
         didSet {
             episodesTableView.reloadData()
@@ -37,10 +42,17 @@ extension EpisodeViewController: UITableViewDelegate {}
 
 extension EpisodeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return episodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let episode = episodes[indexPath.row]
+        let episodeCell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
+        
+//        episodeCell.episodeImage.image =
+        episodeCell.episodeNameLabel.text = episode.name
+        episodeCell.episodeSeasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.episode)"
+        
         return UITableViewCell()
     }
 }

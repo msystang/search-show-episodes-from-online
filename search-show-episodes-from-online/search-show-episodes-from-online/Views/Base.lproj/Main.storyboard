@@ -153,6 +153,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="episodeImage" destination="VZu-e7-1a6" id="cY6-7t-gDd"/>
+                                            <outlet property="episodeNameLabel" destination="Emf-dF-pzl" id="CPv-6b-0qB"/>
+                                            <outlet property="episodeSeasonEpNumLabel" destination="ydd-hx-bzJ" id="BJf-Ee-eUE"/>
                                             <segue destination="Pvu-ed-hUs" kind="show" identifier="episodeCellToDetailSegue" id="3Q5-de-3Xf"/>
                                         </connections>
                                     </tableViewCell>
