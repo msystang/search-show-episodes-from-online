@@ -168,6 +168,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1CL-fL-7yl"/>
                     </view>
+                    <connections>
+                        <outlet property="episodesTableView" destination="cod-Pp-5Nm" id="a7Y-WV-jlz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMo-m2-BJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

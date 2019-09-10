@@ -9,26 +9,38 @@
 import UIKit
 
 class EpisodeViewController: UIViewController {
+
+    @IBOutlet weak var episodesTableView: UITableView!
     
     var show: Show!
-    var episodes = [Episode]()
+    var episodes = [Episode]() {
+        didSet {
+            episodesTableView.reloadData()
+        }
+    }
     
     // URL to load episode: "http://api.tvmaze.com/shows/\(episideIDhere)/episodes?=summary"
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        configureTableView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureTableView() {
+        episodesTableView.delegate = self
+        episodesTableView.dataSource = self
     }
-    */
 
+}
+
+
+extension EpisodeViewController: UITableViewDelegate {}
+
+extension EpisodeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }
