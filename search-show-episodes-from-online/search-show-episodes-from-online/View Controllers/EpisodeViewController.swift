@@ -15,7 +15,7 @@ class EpisodeViewController: UIViewController {
     var show: Show!
     
     var showID: Int {
-        showID = show.id
+        return show.id
     }
     
     var episodes = [Episode]() {
