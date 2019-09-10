@@ -10,7 +10,7 @@ import UIKit
 
 class EpisodeDetailViewController: UIViewController {
 
-    
+    var episode: Episode!
     // URL to load episode: "http://api.tvmaze.com/shows/\(episideIDhere)/episodes?=summary"
     
     override func viewDidLoad() {

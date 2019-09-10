@@ -9,7 +9,6 @@
 import UIKit
 
 class EpisodeViewController: UIViewController {
-    //TODO: Account for keys with no values i.e. images
     
     @IBOutlet weak var episodesTableView: UITableView!
     
@@ -49,6 +48,15 @@ class EpisodeViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    //TODO: refactor errors without fatalError?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedIndex = episodesTableView.indexPathForSelectedRow else { fatalError("No cell selected")}
+        guard segue.identifier == "episodeCellToDetailSegue" else { fatalError("Unidentified segue")}
+        guard let epDetailVC = segue.destination as? EpisodeDetailViewController else { fatalError("No destination") }
+        
+        epDetailVC.episode = episodes[selectedIndex.row]
     }
     
 }
