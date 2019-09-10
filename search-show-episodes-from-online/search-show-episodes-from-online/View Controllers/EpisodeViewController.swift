@@ -10,6 +10,8 @@ import UIKit
 
 class EpisodeViewController: UIViewController {
     
+    //TODO: Wrap text in labels
+    
     @IBOutlet weak var episodesTableView: UITableView!
     
     var show: Show!

@@ -10,6 +10,8 @@ import UIKit
 
 class ShowViewController: UIViewController {
     
+    //TODO: Wrap text in labels
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var showTableView: UITableView!
 

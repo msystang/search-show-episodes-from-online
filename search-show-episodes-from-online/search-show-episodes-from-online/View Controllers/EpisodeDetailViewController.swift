@@ -15,8 +15,10 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var seasonEpNumLabel: UILabel!
     @IBOutlet weak var epDescriptionTextView: UITextView!
     
-    
     var episode: Episode!
+    
+    //TODO: Remove HTML <> in summary
+    //TODO: Wrap text in labels
     
     override func viewDidLoad() {
         super.viewDidLoad()
