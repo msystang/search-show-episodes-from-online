@@ -24,7 +24,6 @@ class EpisodeViewController: UIViewController {
         }
     }
     
-    // URL to load episode: "http://api.tvmaze.com/shows/\(episideIDhere)/episodes?=summary"
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
@@ -34,7 +33,23 @@ class EpisodeViewController: UIViewController {
         episodesTableView.delegate = self
         episodesTableView.dataSource = self
     }
-
+    
+    private func loadEpisodes() {
+        let episodesURL = "http://api.tvmaze.com/shows/\(showID)/episodes"
+    
+        EpisodeAPIClient.shared.getEpisodes(from: episodesURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let episodesFromData):
+                    self.episodes = episodesFromData
+                }
+            }
+        }
+        
+    }
+    
 }
 
 
