@@ -119,22 +119,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VZu-e7-1a6">
-                                                    <rect key="frame" x="10" y="2" width="116.5" height="145.5"/>
+                                                    <rect key="frame" x="10" y="2" width="182" height="145.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="VZu-e7-1a6" secondAttribute="height" multiplier="4:5" id="Pil-Ml-oT5"/>
+                                                        <constraint firstAttribute="width" secondItem="VZu-e7-1a6" secondAttribute="height" multiplier="5:4" id="Pil-Ml-oT5"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FI9-tE-COx">
-                                                    <rect key="frame" x="106.5" y="2" width="305.5" height="145.5"/>
+                                                    <rect key="frame" x="172" y="2" width="240" height="145.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="episodeName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emf-dF-pzl">
-                                                            <rect key="frame" x="99.5" y="0.0" width="106" height="63"/>
+                                                            <rect key="frame" x="67" y="0.0" width="106" height="63"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seasonNum episodeNum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-hx-bzJ">
-                                                            <rect key="frame" x="56.5" y="83" width="192" height="62.5"/>
+                                                            <rect key="frame" x="24" y="83" width="192" height="62.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

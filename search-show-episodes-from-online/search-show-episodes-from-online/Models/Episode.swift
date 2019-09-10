@@ -13,8 +13,8 @@ struct Episode: Codable {
     let name: String
     let season: Int
     let number: Int
-    let image: imageWrapper
-    let summary: String
+    let image: imageWrapper?
+    let summary: String?
 }
 
 struct imageWrapper: Codable {

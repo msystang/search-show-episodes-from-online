@@ -84,17 +84,19 @@ extension ShowViewController: UITableViewDataSource {
         let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
         let show = shows[indexPath.row]
         
-        let imageURL = show.show.image.medium
+        if let imageURL = show.show.image?.medium {
         ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
             DispatchQueue.main.async {
                 switch result {
                     case .failure(let error):
                         print(error)
-                        showCell.showImage.image = UIImage(named: "noImage")
                     case .success(let image):
                         showCell.showImage.image = image
                 }
             }
+        }
+        } else {
+            showCell.showImage.image = UIImage(named: "noImage")
         }
         
         showCell.showNameLabel.text = show.show.name

@@ -16,7 +16,7 @@ struct ShowWrapper: Codable {
 struct Show: Codable {
     let id: Int
     let name: String
-    let image: ImageWrapper
+    let image: ImageWrapper?
 }
 
 struct ImageWrapper: Codable {

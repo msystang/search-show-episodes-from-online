@@ -9,7 +9,8 @@
 import UIKit
 
 class EpisodeViewController: UIViewController {
-
+    //TODO: Account for keys with no values i.e. images
+    
     @IBOutlet weak var episodesTableView: UITableView!
     
     var show: Show!
@@ -53,7 +54,11 @@ class EpisodeViewController: UIViewController {
 }
 
 
-extension EpisodeViewController: UITableViewDelegate {}
+extension EpisodeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
 
 extension EpisodeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,18 +69,20 @@ extension EpisodeViewController: UITableViewDataSource {
         let episode = episodes[indexPath.row]
         let episodeCell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
         
-        let imageURL = episode.image.medium
+        if let imageURL = episode.image?.medium {
         ImageHelper.shared
             .getImage(urlStr: imageURL) { (result) in
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
                         print(error)
-                        episodeCell.episodeImage.image = UIImage(named: "noImage")
                     case .success(let image):
                         episodeCell.episodeImage.image = image
                     }
                 }
+            }
+        } else {
+            episodeCell.episodeImage.image = UIImage(named: "noImage")
         }
 
         episodeCell.episodeNameLabel.text = episode.name
