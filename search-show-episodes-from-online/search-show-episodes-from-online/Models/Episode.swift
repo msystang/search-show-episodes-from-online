@@ -15,6 +15,11 @@ struct Episode: Codable {
     let number: Int
     let image: imageWrapper?
     let summary: String?
+    var fixedSummary: String{
+        if let summary = summary {
+            return summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)}
+        return ""
+    }
 }
 
 struct imageWrapper: Codable {

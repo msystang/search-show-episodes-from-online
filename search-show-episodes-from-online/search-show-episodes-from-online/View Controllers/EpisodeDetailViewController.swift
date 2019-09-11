@@ -29,7 +29,7 @@ class EpisodeDetailViewController: UIViewController {
     private func configureText() {
         episodeNameLabel.text = episode.name
         seasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.number)"
-        epDescriptionTextView.text = episode.summary
+        epDescriptionTextView.text = episode.fixedSummary
     }
     
     private func loadImage() {
