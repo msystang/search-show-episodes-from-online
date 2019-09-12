@@ -11,8 +11,10 @@ import Foundation
 class ShowAPIClient {
     private init() {}
     
+    // MARK: Static Properties
     static let shared = ShowAPIClient()
     
+    // MARK: Internal Methods
     func getShows(from urlStr: String, completionHandler: @escaping (Result<[ShowWrapper], AppError>) -> ()) {
         
         NetworkManager.shared.getData(from: urlStr) { (result) in

@@ -12,10 +12,13 @@ class EpisodeViewController: UIViewController {
     
     //TODO: Wrap text in labels
     
+    // MARK: IBOutlets
     @IBOutlet weak var episodesTableView: UITableView!
     
+    // MARK: Properties
     var show: Show!
-
+    
+    // MARK: Computed Properties
     var showID: Int {
         return show.id
     }
@@ -26,12 +29,14 @@ class EpisodeViewController: UIViewController {
         }
     }
     
+    // MARK: Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         loadEpisodes()
     }
     
+    // MARK: Private Functions
     private func configureTableView() {
         episodesTableView.delegate = self
         episodesTableView.dataSource = self
@@ -52,6 +57,7 @@ class EpisodeViewController: UIViewController {
         }
     }
     
+    // MARK: Navigation Functions
     //TODO: refactor errors without fatalError?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let selectedIndex = episodesTableView.indexPathForSelectedRow else { fatalError("No cell selected")}
@@ -65,12 +71,14 @@ class EpisodeViewController: UIViewController {
 
 
 extension EpisodeViewController: UITableViewDelegate {
+    // MARK: TableView Delegate Methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
 }
 
 extension EpisodeViewController: UITableViewDataSource {
+    // MARK: TableView DataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }

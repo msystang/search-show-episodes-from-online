@@ -10,13 +10,13 @@ import UIKit
 
 class ShowTableViewCell: UITableViewCell {
 
+    // MARK: IBOutlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showNameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    
-    
+    // MARK: TableView Cell Misc Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,8 +24,7 @@ class ShowTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
 
 }

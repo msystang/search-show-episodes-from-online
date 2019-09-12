@@ -11,10 +11,12 @@ import UIKit
 class ShowViewController: UIViewController {
     
     //TODO: Wrap text in labels
-     
+    
+    // MARK: IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var showTableView: UITableView!
-
+    
+    // MARK: Computed Properties
     var searchString: String? = nil {
         didSet {
             showTableView.reloadData()
@@ -28,13 +30,14 @@ class ShowViewController: UIViewController {
         }
     }
     
-    
+    // MARK: Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         configureSearchBar()
     }
     
+    // MARK: Private Functions
     private func configureTableView() {
         showTableView.delegate = self
         showTableView.dataSource = self
@@ -60,9 +63,11 @@ class ShowViewController: UIViewController {
         }
     }
     
+    // MARK: Navigation Functions
     //TODO: refactor errors without fatalError?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let selectedIndex = showTableView.indexPathForSelectedRow else { fatalError("No cell selected")}
+        guard let selectedIndex = showTableView.indexPathForSelectedRow else {
+            fatalError("No cell selected")}
         guard segue.identifier == "showCellToEpisodesSegue" else { fatalError("Unidentified segue")}
         guard let episodesVC = segue.destination as? EpisodeViewController else { fatalError("No destination") }
         
@@ -72,12 +77,14 @@ class ShowViewController: UIViewController {
 }
 
 extension ShowViewController: UITableViewDelegate {
+    // MARK: TableView Delegate Methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
 }
 
 extension ShowViewController: UITableViewDataSource {
+    // MARK: TableView DataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shows.count
     }
@@ -85,22 +92,21 @@ extension ShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
         let show = shows[indexPath.row]
-        
-        // TODO: Refactor path to URL below
+    
         showCell.activityIndicator.startAnimating()
         
         if let imageURL = show.show.image?.medium {
-        ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(let image):
-                        showCell.showImage.image = image
-                        showCell.activityIndicator.stopAnimating()
+            ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                        case .failure(let error):
+                            print(error)
+                        case .success(let image):
+                            showCell.showImage.image = image
+                            showCell.activityIndicator.stopAnimating()
+                    }
                 }
             }
-        }
         } else {
             showCell.showImage.image = UIImage(named: "noImage")
         }
@@ -114,6 +120,7 @@ extension ShowViewController: UITableViewDataSource {
 }
 
 extension ShowViewController: UISearchBarDelegate {
+    // MARK: SearchBar Delegate Methods
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchBar.text
     }

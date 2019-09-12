@@ -11,8 +11,10 @@ import Foundation
 class EpisodeAPIClient {
     private init() {}
     
+    // MARK: Static Properties
     static let shared = EpisodeAPIClient()
     
+    // MARK: Internal Methods
     func getEpisodes(from urlStr: String, completionHandler: @escaping (Result<[Episode], AppError>) -> ()) {
         
         NetworkManager.shared.getData(from: urlStr) { (result) in

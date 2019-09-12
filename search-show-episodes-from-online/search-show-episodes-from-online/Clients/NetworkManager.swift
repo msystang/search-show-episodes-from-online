@@ -11,8 +11,10 @@ import Foundation
 class NetworkManager {
     private init() {}
     
+    // MARK: - Static Properties
     static let shared = NetworkManager()
     
+    // MARK: - Internal Methods
     func getData(from urlStr: String, completionHandler: @escaping (Result<Data, AppError>) -> () ) {
         
         guard let url = URL(string: urlStr) else {

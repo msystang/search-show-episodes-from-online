@@ -10,23 +10,26 @@ import UIKit
 
 class EpisodeDetailViewController: UIViewController {
     
+    // MARK: IBOutlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var episodeImage: UIImageView!
     @IBOutlet weak var episodeNameLabel: UILabel!
     @IBOutlet weak var seasonEpNumLabel: UILabel!
     @IBOutlet weak var epDescriptionTextView: UITextView!
     
+    // MARK: Properties
     var episode: Episode!
     
-    //TODO: Remove HTML <> in summary
     //TODO: Wrap text in labels
     
+    // MARK: Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureText()
         loadImage()
     }
     
+    // MARK: Private Functions
     private func configureText() {
         episodeNameLabel.text = episode.name
         seasonEpNumLabel.text = "Season: \(episode.season) Episode: \(episode.number)"

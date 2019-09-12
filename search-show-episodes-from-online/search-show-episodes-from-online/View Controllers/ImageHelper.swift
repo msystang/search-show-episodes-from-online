@@ -12,8 +12,10 @@ import UIKit
 class ImageHelper {
     private init() {}
     
+    // MARK: - Static Properties
     static let shared = ImageHelper()
     
+    // MARK: - Internal Methods
     func getImage(urlStr: String, completionHandler: @escaping (Result<UIImage,AppError>) -> ()) {
         
         guard let url = URL(string: urlStr) else {
