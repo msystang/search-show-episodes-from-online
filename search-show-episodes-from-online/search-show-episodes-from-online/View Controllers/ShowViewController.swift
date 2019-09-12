@@ -79,7 +79,7 @@ class ShowViewController: UIViewController {
 extension ShowViewController: UITableViewDelegate {
     // MARK: TableView Delegate Methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
 }
 
