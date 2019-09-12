@@ -87,8 +87,6 @@ extension ShowViewController: UITableViewDataSource {
         let show = shows[indexPath.row]
         
         // TODO: Refactor path to URL below
-        
-        showCell.activityIndicator.hidesWhenStopped  == true
         showCell.activityIndicator.startAnimating()
         
         if let imageURL = show.show.image?.medium {

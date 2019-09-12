@@ -79,7 +79,6 @@ extension EpisodeViewController: UITableViewDataSource {
         let episode = episodes[indexPath.row]
         let episodeCell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
         
-        episodeCell.activityIndicator.hidesWhenStopped  == true
         episodeCell.activityIndicator.startAnimating()
         
         if let imageURL = episode.image?.medium {
