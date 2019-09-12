@@ -86,6 +86,11 @@ extension ShowViewController: UITableViewDataSource {
         let showCell = showTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowTableViewCell
         let show = shows[indexPath.row]
         
+        // TODO: Refactor path to URL below
+        
+        showCell.activityIndicator.hidesWhenStopped  == true
+        showCell.activityIndicator.startAnimating()
+        
         if let imageURL = show.show.image?.medium {
         ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
             DispatchQueue.main.async {
@@ -94,6 +99,7 @@ extension ShowViewController: UITableViewDataSource {
                         print(error)
                     case .success(let image):
                         showCell.showImage.image = image
+                        showCell.activityIndicator.stopAnimating()
                 }
             }
         }

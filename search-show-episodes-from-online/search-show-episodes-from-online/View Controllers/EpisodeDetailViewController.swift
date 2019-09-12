@@ -10,6 +10,7 @@ import UIKit
 
 class EpisodeDetailViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var episodeImage: UIImageView!
     @IBOutlet weak var episodeNameLabel: UILabel!
     @IBOutlet weak var seasonEpNumLabel: UILabel!
@@ -33,6 +34,7 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     private func loadImage() {
+        activityIndicator.startAnimating()
         if let imageURL = episode.image?.medium {
             ImageHelper.shared.getImage(urlStr: imageURL) { (result) in
                 DispatchQueue.main.async {
@@ -40,6 +42,7 @@ class EpisodeDetailViewController: UIViewController {
                     case .failure(let error):
                         print(error)
                     case .success(let image):
+                        self.activityIndicator.stopAnimating()
                         self.episodeImage.image = image
                     }
                 }

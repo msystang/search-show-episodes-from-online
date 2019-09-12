@@ -69,6 +69,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="caV-iH-Var" id="i8v-jb-Mex"/>
                                             <outlet property="ratingLabel" destination="lmS-E6-3Ua" id="jZb-N9-aw8"/>
                                             <outlet property="showImage" destination="T3R-vF-2z2" id="3HJ-CA-Ho5"/>
                                             <outlet property="showNameLabel" destination="gOb-2O-Hte" id="YiW-3O-maH"/>
@@ -163,6 +164,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="wVG-1c-bJa" id="1yG-C7-VcF"/>
                                             <outlet property="episodeImage" destination="VZu-e7-1a6" id="cY6-7t-gDd"/>
                                             <outlet property="episodeNameLabel" destination="Emf-dF-pzl" id="CPv-6b-0qB"/>
                                             <outlet property="episodeSeasonEpNumLabel" destination="ydd-hx-bzJ" id="BJf-Ee-eUE"/>
@@ -247,6 +249,7 @@
                         <viewLayoutGuide key="safeArea" id="nyN-1E-VWB"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="rdF-IF-XZI" id="znx-WQ-9Xd"/>
                         <outlet property="epDescriptionTextView" destination="4f9-ww-txy" id="cku-dw-PEh"/>
                         <outlet property="episodeImage" destination="exJ-KS-nKa" id="9fG-zo-WVf"/>
                         <outlet property="episodeNameLabel" destination="6t0-kd-q9X" id="X5s-Sq-iQd"/>
