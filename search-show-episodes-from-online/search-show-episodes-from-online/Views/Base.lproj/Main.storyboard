@@ -220,42 +220,57 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uNC-Wv-OE5">
-                                <rect key="frame" x="111" y="393.5" width="192" height="51"/>
+                                <rect key="frame" x="30" y="393.5" width="354" height="51"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="episodeName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t0-kd-q9X">
-                                        <rect key="frame" x="43" y="0.0" width="106" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="episodeName" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t0-kd-q9X">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seasonNum episodeNum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA7-2B-fQ1">
-                                        <rect key="frame" x="0.0" y="30.5" width="192" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seasonNum episodeNum" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA7-2B-fQ1">
+                                        <rect key="frame" x="0.0" y="30.5" width="354" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="oA7-2B-fQ1" firstAttribute="leading" secondItem="uNC-Wv-OE5" secondAttribute="leading" id="Em3-UX-pZM"/>
+                                    <constraint firstItem="6t0-kd-q9X" firstAttribute="leading" secondItem="uNC-Wv-OE5" secondAttribute="leading" id="bzG-ec-wwI"/>
+                                </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="episodeDesc" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4f9-ww-txy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKn-H1-ymU">
                                 <rect key="frame" x="20" y="464.5" width="374" height="377.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="episodeDesc" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4f9-ww-txy">
+                                        <rect key="frame" x="0.0" y="-0.5" width="374" height="377.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4f9-ww-txy" firstAttribute="top" secondItem="nKn-H1-ymU" secondAttribute="top" id="CO7-Qo-lxd"/>
+                                    <constraint firstItem="4f9-ww-txy" firstAttribute="leading" secondItem="nKn-H1-ymU" secondAttribute="leading" id="cFD-ul-SF8"/>
+                                    <constraint firstAttribute="trailing" secondItem="4f9-ww-txy" secondAttribute="trailing" id="iD2-SL-ean"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uNC-Wv-OE5" firstAttribute="leading" secondItem="exJ-KS-nKa" secondAttribute="leading" id="11E-ja-Lu9"/>
                             <constraint firstItem="rdF-IF-XZI" firstAttribute="centerY" secondItem="exJ-KS-nKa" secondAttribute="centerY" id="1hG-6G-ZFS"/>
-                            <constraint firstItem="4f9-ww-txy" firstAttribute="leading" secondItem="nyN-1E-VWB" secondAttribute="leading" constant="20" id="31P-fJ-uRq"/>
                             <constraint firstItem="exJ-KS-nKa" firstAttribute="leading" secondItem="nyN-1E-VWB" secondAttribute="leading" constant="30" id="D1m-v9-XHl"/>
                             <constraint firstItem="exJ-KS-nKa" firstAttribute="centerX" secondItem="nyN-1E-VWB" secondAttribute="centerX" id="Gr4-FB-NmX"/>
                             <constraint firstItem="uNC-Wv-OE5" firstAttribute="centerX" secondItem="exJ-KS-nKa" secondAttribute="centerX" id="HV2-GL-Cpt"/>
-                            <constraint firstItem="nyN-1E-VWB" firstAttribute="bottom" secondItem="4f9-ww-txy" secondAttribute="bottom" constant="20" id="Lf4-Kl-zZT"/>
                             <constraint firstItem="exJ-KS-nKa" firstAttribute="top" secondItem="nyN-1E-VWB" secondAttribute="top" constant="20" id="Qlt-kM-thi"/>
-                            <constraint firstItem="4f9-ww-txy" firstAttribute="top" secondItem="uNC-Wv-OE5" secondAttribute="bottom" constant="20" id="STO-IF-SLv"/>
                             <constraint firstItem="uNC-Wv-OE5" firstAttribute="top" secondItem="exJ-KS-nKa" secondAttribute="bottom" constant="20" id="bsQ-Ci-s9g"/>
                             <constraint firstItem="rdF-IF-XZI" firstAttribute="centerX" secondItem="exJ-KS-nKa" secondAttribute="centerX" id="hrK-UG-wuL"/>
-                            <constraint firstItem="nyN-1E-VWB" firstAttribute="trailing" secondItem="4f9-ww-txy" secondAttribute="trailing" constant="20" id="w3f-QL-Vkv"/>
+                            <constraint firstItem="nKn-H1-ymU" firstAttribute="centerX" secondItem="exJ-KS-nKa" secondAttribute="centerX" id="huo-1D-w3O"/>
+                            <constraint firstItem="nKn-H1-ymU" firstAttribute="leading" secondItem="exJ-KS-nKa" secondAttribute="leading" id="rLK-zu-NIS"/>
+                            <constraint firstItem="nyN-1E-VWB" firstAttribute="bottom" secondItem="nKn-H1-ymU" secondAttribute="bottom" constant="20" id="v1X-sS-sFn"/>
+                            <constraint firstItem="nKn-H1-ymU" firstAttribute="top" secondItem="uNC-Wv-OE5" secondAttribute="bottom" constant="20" id="x0p-lb-CjO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nyN-1E-VWB"/>
                     </view>
